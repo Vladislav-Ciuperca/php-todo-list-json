@@ -20,7 +20,7 @@
 
         <h1>{{message}}</h1>
  
-        <input type="text" placeholder="nuova task" v-model="newTask">
+        <input type="text" placeholder="nuova task" v-model="newTask" @keyup.enter="addTask()">
 
         <button @click="addTask()">aggiungi task</button>
 
@@ -29,13 +29,13 @@
             <li v-for="elemento in tasks">
                 {{elemento.task}}
                 <span v-if="elemento.complete == true">
-                    <i class="fa-regular fa-circle-check"></i>
+                    <i class="fa-regular fa-circle-check" @click="change()"></i>
                 </span>
                 <span v-if="elemento.complete == false">
-                    <i class="fa-regular fa-circle-xmark"></i>
+                    <i class="fa-regular fa-circle-xmark" @click="change()"></i>
                 </span>
                 <span v-if="elemento.complete == null">
-                    <i class="fa-regular fa-circle-question"></i>
+                    <i class="fa-regular fa-circle-question" @click="change()"></i>
                 </span>
 
                 

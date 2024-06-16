@@ -3,26 +3,36 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            message: 'Hellow Vue!',
+            message: 'Hellorrrrw Vue!',
+            tasks: [],
+            newTask: "",
 
-            tasks:[],
-
-            newTask: ""
-        
+            apiUrl: "server.php",
+            postRequestConfig: {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }
         }
     },
     methods: {
 
-        addTask(){
+        addTask() {
             console.log("aggiunta una taskerella", this.newTask);
 
             const newOne = {
-                    task : this.newTask,
-                    complete: false,
+                task: this.newTask,
+                complete: false,
             }
 
-            this.tasks.push(newOne)
-        }
+            axios.post(this.apiUrl, newOne, this.postRequestConfig).then(result => {
+                console.log("axios ANDATA", result.data);
+
+                this.tasks = result.data
+
+            })
+
+        },
 
     },
     created() {
@@ -32,7 +42,7 @@ createApp({
 
         console.log("Recupero i datio dal server");
 
-        axios.get("server.php").then(results => {
+        axios.get(this.apiUrl).then(results => {
             console.log(results.data);
 
             this.tasks = results.data
