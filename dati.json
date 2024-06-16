@@ -1,0 +1,22 @@
+[
+    {
+        "task": "Tosare l'erba",
+        "complete": true
+    },
+    {
+        "task": "Mangiare biscotti",
+        "complete": false
+    },
+    {
+        "task": "'Votare Vermin Supreme",
+        "complete": true
+    },
+    {
+        "task": "Carpare il Diem",
+        "complete": false
+    },
+    {
+        "task": "Essere pazzo, pazzo per Gesu",
+        "complete": null
+    }
+]
